@@ -22,14 +22,22 @@ Please don't hesitate to come back to us if you have any questions.
 
 Make sure you have Helm and Minikube installed and running. Make sure that `kubectl` is correctly configured to apply changes to Minikube.
 
+To deploy Seldon Core on Minikube use the script in `./scripts/start_seldon_core.sh`.
+
+To remove Seldon Core you can run `./scripts/remove_seldon_core.sh`.
+
+Install ambassador with `helm install ambassador stable/ambassador`.
+
+Run `go run main.go --filepath seldon_deployment.json`. This will deploy an example mock model to Minikube.
+
+Run on a new terminal `minikube tunnel` to get an external IP for ambassador. You can check the IP by doing `kubectl get svc --all-namespaces`
+
+Run `curl -XPOST -k http://<Ambassador-IP>/seldon/default/seldon-model/api/v0.1/predictions -v`. The response will be an error, but we sucessfully reached the mock model deployed.
+
 ## Useful commands
 
 Use `kubectl get sdep` to check if a SeldonCustomDeployment exists.
 
-
-
-To deploy Seldon Core on Minikube use the script in `./scripts/start_seldon_core.sh`.
-To remove Seldon Core you can run `./scripts/remove_seldon_core.sh`
 
 
 ## Version used
