@@ -22,6 +22,12 @@ Please don't hesitate to come back to us if you have any questions.
 
 Make sure you have Helm and Minikube installed and running. Make sure that `kubectl` is correctly configured to apply changes to Minikube.
 
+## Useful commands
+
+Use `kubectl get sdep` to check if a SeldonCustomDeployment exists.
+
+
+
 To deploy Seldon Core on Minikube use the script in `./scripts/start_seldon_core.sh`.
 To remove Seldon Core you can run `./scripts/remove_seldon_core.sh`
 
